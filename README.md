@@ -100,7 +100,7 @@ The MAE (Mean Absolute Error) is used to report the results for the normalized t
 * LSTM-Attention : 0.015
 * Hybrid GRU-XGBoost : 0.014
 * Hybrid LSTM-Attention-XGBoost : 0.015
-* 
+  
 Note : According to the findings, the hybrid methods demonstrated better performance in terms of MAE compared to other methods. It is worth mentioning that all machine learning/deep learning methods outperformed TSO prediction.
 
 ## Inspiration(insight): Ritik Dhame 
