@@ -3,28 +3,52 @@
 
 # Objective: 
 
-The focal point of this project revolves around time series forecasting, encompassing the integration of two separate datasets comprising energy and weather data. By amalgamating energy consumption and weather-related metrics from multiple cities in Spain, the project endeavors to tackle a multivariate time series forecasting challenge.
+This project focuses on multivariate time series forecasting by integrating energy consumption and weather data from multiple cities in Spain. By combining electricity demand, generation, pricing, and weather-related variables, the project addresses the challenge of forecasting time-dependent electricity demand and prices in a complex, real-world setting.
 
-The project employs a diverse array of forecasting models, including the XGboost Regressor, GRU (Gated Recurrent Unit), LSTM (Long Short-Term Memory), CNN (Convolutional Neural Network), CNN-LSTM, and LSTM-Attention. Additionally, hybrid models like GRU-XGBoost and LSTM-Attention-XGBoost are employed, harnessing the strength of multiple techniques through ensembling.
+A range of advanced forecasting models were implemented, including XGBoost Regressor, GRU, LSTM, CNN, CNN–LSTM, and LSTM with Attention. In addition, hybrid ensemble approaches such as GRU–XGBoost and LSTM-Attention–XGBoost were developed to leverage the strengths of both deep learning and tree-based models.
 
-Overall, this project seeks to harness the power of these forecasting methodologies to derive accurate predictions for electricity demand and pricing in a time-dependent context, thereby contributing to the advancement of energy forecasting and enhancing decision-making within the energy sector. 
+The goal is to generate accurate and robust forecasts that support improved decision-making in the energy sector. 
  
 
 ## About the Dataset:
 
-The energy consumption and weather data from various cities in Spain are combined to create a multivariate time series forecasting problem. The energy dataset contains features related to the generation of energy from different sources like fossil fuels, wind, and coal. On the other hand, the weather dataset contains features related to various weather metrics such as temperature, humidity, pressure, wind speed, etc.
+The dataset combines four years of hourly electricity and weather data from Spain, forming a multivariate time series problem.
+Energy data includes electricity consumption, pricing, and generation from multiple sources such as fossil fuels, wind, and coal.
+Weather data includes temperature, humidity, pressure, wind speed, and related meteorological variables across different cities.
 
-The dataset includes a four-year record of weather data <a href="https://openweathermap.org/api">https://openweathermap.org/api</a> 
-electrical consumption, pricing, and generation data for Spain <a href="https://transparency.entsoe.eu/dashboard/show">ENTOSE website</a> . The public ENTSOE portal was used to retrieve the consumption and generation data, while 
-the Spanish TSO Red Electric España was used to obtain the settlement prices <a href="https://www.esios.ree.es/en/market-and-prices?date=27-03-2023#">TSO website</a>. 
+Data sources:
 
-# Method 
-The code consists of 4 main parts:
+Electricity consumption and generation: ENTSO-E public portal
+Electricity settlement prices: Red Eléctrica de España (Spanish TSO)
+Weather data: OpenWeatherMap API
+This integration enables detailed analysis of how weather and generation patterns influence electricity demand and pricing.
 
-- Data loading and feature exploartion: This part uses os and pandas to load, process the data into a dataframe, plotting correlation matrix on both the dataset. 
-- Preprocessing: Involves getting rid of Null values, selecting features required hour,weekday, month, year from the data and plotting visualization, followed by normalizing and reshaping the data follwed by using The Dickey-Fuller test to check if thr data us stationary
-- Model building and training: This part using PCA to select the features necessary,normalizing target variables and then building forecasting models With XGBoost, GRU, LSTM, CNN, CNN-LSTM,LSTM attention, GRU-XGboost, LSTM attention-XGboost.
-- We plot the train an validation Mean Absolute Error for each case and also compare the scores across the different models towards the end. 
+## Methodology 
+The project implementation is structured into four main stages:
+
+1. # Data Loading and Exploration
+
+Loaded and processed datasets using Pandas
+Performed exploratory analysis and correlation studies
+Visualized relationships across energy and weather variables
+
+2. # Preprocessing
+Handled missing values
+Extracted time-based features (hour, weekday, month, year)
+Normalized and reshaped data for modeling
+Applied the Augmented Dickey–Fuller test to assess stationarity
+
+3. # Model Development and Training
+
+Applied PCA for feature selection
+Built forecasting models using XGBoost, GRU, LSTM, CNN, CNN–LSTM, and LSTM-Attention
+Implemented hybrid ensemble models (GRU–XGBoost, LSTM-Attention–XGBoost)
+
+4. # Evaluation and Comparison
+
+Compared models using Mean Absolute Error (MAE)
+Visualized training and validation performance
+Evaluated forecasting accuracy across different architectures
 
 
 
@@ -41,19 +65,15 @@ To run the code, you need to install the following libraries:
 - Scikit Learn 
 
 ## Motivation:
-This dataset stands out due to its comprehensive hourly data on electrical consumption, along with the corresponding forecasts provided by the TSO for consumption and pricing. This unique combination allows for a valuable opportunity to compare prospective forecasts against the current state-of-the-art industry predictions.
+This dataset is particularly valuable due to its hourly granularity and the availability of TSO-provided forecasts for both consumption and pricing. This enables direct comparison between industry-standard forecasts and machine learning–based approaches.
 
-The dataset opens up a realm of intriguing questions that can be explored:
+Key questions explored include:
 
-Load and Marginal Supply Curves: The project aims to analyze and visualize how the load and marginal supply curves manifest based on the dataset's information.
-
-Weather Impact on Electrical Demand, Prices, and Generation: Through detailed analysis, the project will identify which weather measurements and cities exert the most significant influence on electrical demand, pricing, and generation capacity.
-
-Enhancing TSO's 24-Hour Forecast: The project seeks to improve upon the accuracy of the TSO's 24-hour advance forecast for electrical consumption and pricing.
-
-Time-of-Day Electrical Price Prediction: Can the project achieve more precise predictions of electrical price based on different times of the day compared to the TSO's forecasts?
-
-Intraday Price and Electrical Demand Forecasting: By utilizing the dataset's rich hourly data, the project endeavors to develop hour-by-hour forecasts for intraday price and electrical demand.
+1. How do load and marginal supply curves evolve across time?
+2. Which weather variables and cities most strongly influence electricity demand, pricing, and generation?
+3. Can machine learning models improve the TSO’s 24-hour ahead forecasts?
+4. How accurately can time-of-day electricity prices be predicted?
+5. Can reliable hour-by-hour intraday forecasts for demand and pricing be achieved?
 
 ## Models used in this project : 
 
