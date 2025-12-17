@@ -1,5 +1,5 @@
 # Electricity_Demand_and_Price_forecasting
-![image](https://github.com/ritikdhame/Electricity_Demand_and_Price_orecasting/assets/7029092/bbfbbb44-1fc0-406b-81f8-d4d2760b9030)
+
 
 # Objective: 
 
@@ -26,7 +26,7 @@ The code consists of 4 main parts:
 - Model building and training: This part using PCA to select the features necessary,normalizing target variables and then building forecasting models With XGBoost, GRU, LSTM, CNN, CNN-LSTM,LSTM attention, GRU-XGboost, LSTM attention-XGboost.
 - We plot the train an validation Mean Absolute Error for each case and also compare the scores across the different models towards the end. 
 
-![image](https://github.com/ritikdhame/Electricity_Demand_and_Price_orecasting/assets/7029092/08e42691-68ec-4ccd-9bec-5dcc51206844)
+
 
 ## Requirements
 
@@ -80,5 +80,7 @@ The MAE (Mean Absolute Error) is used to report the results for the normalized t
 * LSTM-Attention : 0.015
 * Hybrid GRU-XGBoost : 0.014
 * Hybrid LSTM-Attention-XGBoost : 0.015
+* 
 Note : According to the findings, the hybrid methods demonstrated better performance in terms of MAE compared to other methods. It is worth mentioning that all machine learning/deep learning methods outperformed TSO prediction.
- 
+
+## Inspiration(insight): Ritik Dhame 
